@@ -1,36 +1,28 @@
 name: publish to nuget
 
 on:
-  
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
-  
-  build:
+  build-and-publish:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./
+
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
+        include-prerelease: False
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build ReleaseChecker.GitHub/ReleaseChecker.GitHub.csproj --no-restore --configuration Release
     - name: Test
-      run: dotnet test --no-build --verbosity normal
-    - name: Package
-      if: github.ref == 'refs/heads/master'
-      run: dotnet pack -c Release -o . ReleaseChecker.GitHub/ReleaseChecker.GitHub.csproj
-    - name: Publish
-      if: github.ref == 'refs/heads/master'
-      run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
-      
-      
+      run: dotnet test ReleaseChecker.GitHub/ReleaseChecker.GitHub.csproj --no-build --configuration Release --verbosity normal
+    - name: Pack
+      run: dotnet pack ReleaseChecker.GitHub/ReleaseChecker.GitHub.csproj --no-build --configuration Release -o __out
+    - name: Push
+      run: dotnet nuget push "./__out/*.nupkg" --source https://www.nuget.org --no-symbols --api-key ${{secrets.NUGET_API_KEY}}
