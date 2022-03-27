@@ -4,6 +4,16 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>SkiTles55</Authors>
+    <Company>SkiTles55</Company>
+    <Version>1.0.1</Version>
+    <PackageId>ReleaseChecker</PackageId>
+    <Product>ReleaseChecker</Product>
+    <Copyright>SkiTles55</Copyright>
+    <PackageProjectUrl>https://github.com/SkiTles55/ReleaseChecker</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SkiTles55/ReleaseChecker</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 </Project>
