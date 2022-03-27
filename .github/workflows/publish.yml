@@ -13,12 +13,12 @@ jobs:
       # - name: Setup dotnet
       #   uses: actions/setup-dotnet@v1
       #   with:
-      #     dotnet-version: 3.1.200
+      #     dotnet-version: 6.0.0
 
       # Publish
       - name: publish on version change
         id: publish_nuget
-        uses: rohith/publish-nuget@v2
+        uses: alirezanet/publish-nuget@v3.0.0
         with:
           # Filepath of the project to be packaged, relative to root of repository
           PROJECT_FILE_PATH: ReleaseChecker.GitHub/ReleaseChecker.GitHub.csproj
@@ -27,7 +27,7 @@ jobs:
           PACKAGE_NAME: ReleaseChecker.GitHub
           
           # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
-          # VERSION_FILE_PATH: Directory.Build.props
+          VERSION_FILE_PATH: ReleaseChecker.GitHub/ReleaseChecker.GitHub.csproj
 
           # Regex pattern to extract version info in a capturing group
           # VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
@@ -49,3 +49,6 @@ jobs:
 
           # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
           # INCLUDE_SYMBOLS: false
+
+          # Flag to toggle not building the project and letting pack command handle restoring & building, disabled by default
+          # NO_BUILD: false
