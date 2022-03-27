@@ -1,0 +1,1 @@
+﻿A simple library which can be used for basic udpate checking by querying GitHub's release API.
