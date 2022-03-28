@@ -18,10 +18,17 @@ namespace ReleaseChecker.GitHub
 
         public override async Task<bool> DownloadAsync(string targetPath, IProgress<float>? progress = null, CancellationToken cancellationToken = default)
         {
-            using var client = new HttpClient();
-            using var file = new FileStream(targetPath, FileMode.Create, FileAccess.Write, FileShare.None);
-            await client.DownloadAsync(Url, file, progress, cancellationToken);
-            return true;
+            try
+            {
+                using var client = new HttpClient();
+                using var file = new FileStream(targetPath, FileMode.Create, FileAccess.Write, FileShare.None);
+                await DownloadAsync(client, Url, file, progress, cancellationToken);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

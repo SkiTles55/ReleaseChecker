@@ -101,6 +101,8 @@ namespace ReleaseCheckerTests
             var file = release?.Files?.First();
             Assert.NotNull(file, "Release file is null");
             string testFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, file!.Name);
+            if (File.Exists(testFile))
+                File.Delete(testFile);
             var test = file!.DownloadAsync(testFile).Result;
             Assert.IsTrue(test);
             Assert.IsTrue(File.Exists(testFile));

@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReleaseChecker", "ReleaseChecker\ReleaseChecker.csproj", "{7E46AD72-D4E2-4CBE-896F-99C8DB86E27A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReleaseChecker", "ReleaseChecker\ReleaseChecker.csproj", "{7E46AD72-D4E2-4CBE-896F-99C8DB86E27A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReleaseChecker.GitHub", "ReleaseChecker.GitHub\ReleaseChecker.GitHub.csproj", "{18D35695-58C8-4ABE-9914-62BDC5A73F90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReleaseChecker.GitHub", "ReleaseChecker.GitHub\ReleaseChecker.GitHub.csproj", "{18D35695-58C8-4ABE-9914-62BDC5A73F90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReleaseCheckerTests", "ReleaseCheckerTests\ReleaseCheckerTests.csproj", "{A6F65236-F9AD-4918-845B-BAD78F50A86D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReleaseCheckerTests", "ReleaseCheckerTests\ReleaseCheckerTests.csproj", "{A6F65236-F9AD-4918-845B-BAD78F50A86D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReleaseCheckerDemo", "ReleaseCheckerDemo\ReleaseCheckerDemo.csproj", "{A3DA21AC-B9B5-43D1-B7EE-75CA5CD55215}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A6F65236-F9AD-4918-845B-BAD78F50A86D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6F65236-F9AD-4918-845B-BAD78F50A86D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6F65236-F9AD-4918-845B-BAD78F50A86D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3DA21AC-B9B5-43D1-B7EE-75CA5CD55215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3DA21AC-B9B5-43D1-B7EE-75CA5CD55215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3DA21AC-B9B5-43D1-B7EE-75CA5CD55215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3DA21AC-B9B5-43D1-B7EE-75CA5CD55215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
