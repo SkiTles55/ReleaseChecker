@@ -1,4 +1,4 @@
-## ReleaseChecker [ENG README version](ENGREADME.md)
+## ReleaseChecker [ENG README version](ENGREADME.MD)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/SkiTles55/ReleaseChecker/publish-ReleaseChecker)
 ![Nuget](https://img.shields.io/nuget/dt/ReleaseChecker)
 ![GitHub](https://img.shields.io/github/license/SkiTles55/ReleaseChecker)
