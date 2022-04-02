@@ -6,7 +6,13 @@
     xmlns:local="clr-namespace:ReleaseCheckerDemo.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Expander Header="{Binding Title}" IsExpanded="True">
+    <Expander IsExpanded="True">
+        <Expander.Header>
+            <TextBlock
+                Margin="5,0,5,0"
+                FontWeight="Bold"
+                Text="{Binding Title}" />
+        </Expander.Header>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150" />
@@ -119,10 +125,20 @@
                 TextAlignment="Left"
                 TextWrapping="Wrap" />
             <ListBox
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="0"
                 Grid.ColumnSpan="3"
-                ItemsSource="{Binding Files}" />
+                BorderThickness="0,1,0,1"
+                ItemContainerStyle="{StaticResource NoHoverListBox}"
+                ItemsSource="{Binding Files}"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                Style="{StaticResource ReleaseFilesListBox}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <local:ReleaseFile />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
     </Expander>
 </UserControl>

@@ -2,15 +2,15 @@
 {
     internal class ReleaseCheckerViewModel : BindableEntity
     {
-        protected string repoAuthor = "SkiTles55";
-        protected string repoName = "SP-EFT-ProfileEditor";
+        protected string repoAuthor = string.Empty;
+        protected string repoName = string.Empty;
 
         public virtual RelayCommand? GetReleases { get; }
         public virtual RelayCommand? GetLatestRelease { get; }
 
-        public string RepoAuthor { get; set; } = "SkiTles55";
+        public string RepoAuthor { get; set; } = string.Empty;
 
-        public string RepoName { get; set; } = "SP-EFT-ProfileEditor";
+        public string RepoName { get; set; } = string.Empty;
 
         public bool IncludePreRelease { get; set; } = false;
 

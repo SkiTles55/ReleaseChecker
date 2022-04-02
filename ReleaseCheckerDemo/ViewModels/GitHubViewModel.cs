@@ -3,7 +3,7 @@ using ReleaseCheckerDemo.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using System.Windows;
+using System.Windows.Forms;
 
 namespace ReleaseCheckerDemo.ViewModels
 {
@@ -16,6 +16,10 @@ namespace ReleaseCheckerDemo.ViewModels
         public override RelayCommand GetLatestRelease => new(async obj => { await GetGitHubLatestRelease(); });
 
         public ObservableCollection<GitHubRelease> Releases => _gitHubModel.Releases;
+
+        public new string RepoAuthor { get; set; } = "SkiTles55";
+
+        public new string RepoName { get; set; } = "SP-EFT-ProfileEditor";
 
         private async Task GetGitHubLatestRelease()
         {

@@ -61,6 +61,30 @@
                     </Trigger>
                 </Style.Triggers>
             </Style>
+            <Style
+                x:Key="ReleaseFilesListBox"
+                BasedOn="{StaticResource {x:Type ListBox}}"
+                TargetType="ListBox">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Items.Count}" Value="0">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate>
+                                    <Label
+                                        Margin="10,0,5,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        FontWeight="Bold">
+                                        <Label.Content>
+                                            <TextBlock Text="Release does not have files" TextWrapping="Wrap" />
+                                        </Label.Content>
+                                    </Label>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

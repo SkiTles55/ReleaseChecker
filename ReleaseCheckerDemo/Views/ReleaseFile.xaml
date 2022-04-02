@@ -1,0 +1,112 @@
+﻿<UserControl
+    x:Class="ReleaseCheckerDemo.Views.ReleaseFile"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="clr-namespace:ReleaseCheckerDemo"
+    xmlns:local="clr-namespace:ReleaseCheckerDemo.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <helpers:FileSizeConverter x:Key="FileSizeConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="5,0,5,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            FontWeight="Bold">
+            <Label.Content>
+                <TextBlock Text="File Name" TextWrapping="Wrap" />
+            </Label.Content>
+        </Label>
+        <Label
+            Grid.Row="1"
+            Grid.Column="0"
+            Margin="5,0,5,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <Label.Content>
+                <TextBlock Text="{Binding Name}" TextWrapping="Wrap" />
+            </Label.Content>
+        </Label>
+        <Label
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="5,0,5,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            FontWeight="Bold">
+            <Label.Content>
+                <TextBlock Text="Size" TextWrapping="Wrap" />
+            </Label.Content>
+        </Label>
+        <Label
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="5,0,5,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <Label.Content>
+                <TextBlock Text="{Binding Size, Converter={StaticResource FileSizeConverter}}" TextWrapping="Wrap" />
+            </Label.Content>
+        </Label>
+        <Label
+            Grid.Row="0"
+            Grid.Column="2"
+            Margin="5,0,5,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            FontWeight="Bold">
+            <Label.Content>
+                <TextBlock Text="Downloads Count" TextWrapping="Wrap" />
+            </Label.Content>
+        </Label>
+        <Label
+            Grid.Row="1"
+            Grid.Column="2"
+            Margin="5,0,5,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <Label.Content>
+                <TextBlock Text="{Binding DownloadCount}" TextWrapping="Wrap" />
+            </Label.Content>
+        </Label>
+        <Label
+            Grid.Row="0"
+            Grid.Column="3"
+            Margin="5,0,5,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            FontWeight="Bold">
+            <Label.Content>
+                <TextBlock Text="Url" TextWrapping="Wrap" />
+            </Label.Content>
+        </Label>
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="3"
+            Margin="10,0,5,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center">
+            <Hyperlink
+                NavigateUri="{Binding Url}"
+                RequestNavigate="Hyperlink_RequestNavigate"
+                Style="{DynamicResource LinkStyle}">
+                <TextBlock Text="{Binding Url}" TextWrapping="Wrap" />
+            </Hyperlink>
+        </TextBlock>
+    </Grid>
+</UserControl>

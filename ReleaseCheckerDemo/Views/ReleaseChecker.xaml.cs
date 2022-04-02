@@ -1,18 +1,16 @@
-﻿using ReleaseCheckerDemo.ViewModels;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ReleaseCheckerDemo.Views
 {
     /// <summary>
-    /// Логика взаимодействия для GitHub.xaml
+    /// Логика взаимодействия для ReleaseChecker.xaml
     /// </summary>
-    public partial class GitHub : UserControl
+    public partial class ReleaseChecker : UserControl
     {
-        public GitHub()
+        public ReleaseChecker()
         {
             InitializeComponent();
-            DataContext = new GitHubViewModel();
         }
 
         private void ScrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)

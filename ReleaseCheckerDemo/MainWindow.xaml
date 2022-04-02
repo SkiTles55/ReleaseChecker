@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:ReleaseCheckerDemo.ViewModels"
     xmlns:views="clr-namespace:ReleaseCheckerDemo.Views"
     Title="ReleaseCheckerDemo"
     Width="600"
@@ -12,7 +13,11 @@
     <Grid>
         <TabControl>
             <TabItem Header="ReleaseChecker.GitHub">
-                <views:GitHub />
+                <views:ReleaseChecker>
+                    <views:ReleaseChecker.DataContext>
+                        <viewmodels:GitHubViewModel />
+                    </views:ReleaseChecker.DataContext>
+                </views:ReleaseChecker>
             </TabItem>
         </TabControl>
     </Grid>

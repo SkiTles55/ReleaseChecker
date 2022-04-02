@@ -93,19 +93,5 @@ namespace ReleaseCheckerTests
             var release = prereleaseRepo.GetLatestReleaseAsync().Result;
             Assert.IsNull(release, "Release is not null");
         }
-
-        [Test]
-        public void CanDownloadLatestRelease()
-        {
-            var release = profileEditorRepo.GetLatestReleaseAsync().Result;
-            var file = release?.Files?.First();
-            Assert.NotNull(file, "Release file is null");
-            string testFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, file!.Name);
-            if (File.Exists(testFile))
-                File.Delete(testFile);
-            var test = file!.DownloadAsync(testFile).Result;
-            Assert.IsTrue(test);
-            Assert.IsTrue(File.Exists(testFile));
-        }
     }
 }
