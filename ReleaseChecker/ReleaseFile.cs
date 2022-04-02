@@ -2,11 +2,9 @@
 {
     public abstract class ReleaseFile
     {
-        public string Name { get; set; } = "";
-        public string Url { get; set; } = "";
-        public long Size { get; set; }
-        public int DownloadCount { get; set; }
-
-        public abstract void Download(string targetPath);
+        public abstract string Name { get; set; }
+        public abstract string Url { get; set; }
+        public abstract long Size { get; set; }
+        public abstract int DownloadCount { get; set; }
     }
 }

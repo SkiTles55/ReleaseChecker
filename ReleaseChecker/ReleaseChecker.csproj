@@ -7,7 +7,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>SkiTles55</Authors>
     <Company>SkiTles55</Company>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageId>ReleaseChecker</PackageId>
     <Product>ReleaseChecker</Product>
     <Copyright>SkiTles55</Copyright>

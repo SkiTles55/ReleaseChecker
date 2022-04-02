@@ -1,0 +1,26 @@
+name: publish-ReleaseChecker
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-publish-ReleaseChecker:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+        include-prerelease: False
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build ReleaseChecker/ReleaseChecker.csproj --no-restore --configuration Release
+    - name: Pack
+      run: dotnet pack ReleaseChecker/ReleaseChecker.csproj --no-build --configuration Release -o __out
+    - name: Push
+      run: dotnet nuget push "./__out/*.nupkg" --source https://api.nuget.org/v3/index.json --no-service-endpoint --no-symbols --api-key ${{secrets.NUGET_API_KEY}}

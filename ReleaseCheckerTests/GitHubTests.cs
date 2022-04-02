@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using ReleaseChecker.GitHub;
 using System;
+using System.IO;
 using System.Linq;
 
 namespace ReleaseCheckerTests
@@ -56,6 +57,16 @@ namespace ReleaseCheckerTests
             Assert.IsNotEmpty(releases, "Releases is empty");
             Assert.IsTrue(releases.Count <= 30, "Releases count greater than default page size");
             Assert.IsFalse(profileEditorRepo.HasNextPage, "Release checker has next page");
+        }
+
+        [Test]
+        public void HasNextPage()
+        {
+            var releases = dotNetCoreRepo.GetReleasesAsync(1, 3).Result;
+            Assert.NotNull(releases, "Releases is null");
+            Assert.IsNotEmpty(releases, "Releases is empty");
+            Assert.IsFalse(releases.Count > 3, "Releases count greater than page size");
+            Assert.IsTrue(dotNetCoreRepo.HasNextPage, "Release checker dont has next page");
         }
 
         [Test]

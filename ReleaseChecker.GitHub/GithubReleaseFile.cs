@@ -4,21 +4,17 @@ namespace ReleaseChecker.GitHub
 {
     public class GithubReleaseFile : ReleaseFile
     {
+
         [JsonPropertyName("name")]
-        public new string Name { get; set; } = "";
+        public override string Name { get; set; } = "";
 
         [JsonPropertyName("browser_download_url")]
-        public new string Url { get; set; } = "";
+        public override string Url { get; set; } = "";
 
         [JsonPropertyName("size")]
-        public new long Size { get; set; }
+        public override long Size { get; set; }
 
         [JsonPropertyName("download_count")]
-        public new int DownloadCount { get; set; }
-
-        public override void Download(string targetPath)
-        {
-            throw new NotImplementedException();
-        }
+        public override int DownloadCount { get; set; }
     }
 }
