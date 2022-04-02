@@ -1,4 +1,4 @@
-## ReleaseChecker
+## ReleaseChecker [ENG README version](ENGREADME.md)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/SkiTles55/ReleaseChecker/publish-ReleaseChecker)
 ![Nuget](https://img.shields.io/nuget/dt/ReleaseChecker)
 ![GitHub](https://img.shields.io/github/license/SkiTles55/ReleaseChecker)
@@ -29,3 +29,4 @@ var release = await gitHubChecker.GetReleasesAsync(pageNumber, pageSize, include
 
 ## ReleaseChecker.Demo
 Демо проект показывающий все возможности библиотек
+![ReleaseChecker.Demo](/Screenshots/demo.github.png?raw=true)
