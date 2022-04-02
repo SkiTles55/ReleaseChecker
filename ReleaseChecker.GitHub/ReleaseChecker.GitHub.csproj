@@ -13,7 +13,7 @@
     <Copyright>SkiTles55</Copyright>
     <PackageProjectUrl>https://github.com/SkiTles55/ReleaseChecker</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SkiTles55/ReleaseChecker</RepositoryUrl>
-    <Description>Get latest release version from GitHub repository</Description>
+    <Description>A simple library that can be used for basic update checking by requesting a list of releases from GitHub repositories.</Description>
     <PackageIcon>github.png</PackageIcon>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
