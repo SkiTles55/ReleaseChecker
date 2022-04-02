@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace ReleaseCheckerDemo
 {
-    internal class BindableEntity
+    internal class BindableEntity : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 

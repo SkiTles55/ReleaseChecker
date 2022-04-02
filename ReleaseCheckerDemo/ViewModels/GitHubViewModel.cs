@@ -15,11 +15,27 @@ namespace ReleaseCheckerDemo.ViewModels
 
         public override RelayCommand GetLatestRelease => new(async obj => { await GetGitHubLatestRelease(); });
 
+        public override RelayCommand GetNextPage => new(async obj => { await GetGitHubReleasesNextPage(); });
+
+        public override RelayCommand GetPreviousPage => new(async obj => { await GetGitHubReleasesPreviousPage(); });
+
         public ObservableCollection<GitHubRelease> Releases => _gitHubModel.Releases;
 
         public new string RepoAuthor { get; set; } = "SkiTles55";
 
         public new string RepoName { get; set; } = "SP-EFT-ProfileEditor";
+
+        private async Task GetGitHubReleasesNextPage()
+        {
+            Page += 1;
+            await GetGitHubReleases();
+        }
+
+        private async Task GetGitHubReleasesPreviousPage()
+        {
+            Page -= 1;
+            await GetGitHubReleases();
+        }
 
         private async Task GetGitHubLatestRelease()
         {
@@ -32,6 +48,13 @@ namespace ReleaseCheckerDemo.ViewModels
             {
                 MessageBox.Show(ex.Message, "Error");
             }
+            UpdatePageButtons();
+        }
+
+        private void UpdatePageButtons()
+        {
+            IsNextPageButtonEnabled = _gitHubModel.Checker?.HasNextPage ?? false;
+            IsPreviousPageButtonEnabled = Page > 1;
         }
 
         private async Task GetGitHubReleases()
@@ -45,6 +68,7 @@ namespace ReleaseCheckerDemo.ViewModels
             {
                 MessageBox.Show(ex.Message, "Error");
             }
+            UpdatePageButtons();
         }
 
         private void PrepareGitHubChecker()
@@ -53,7 +77,7 @@ namespace ReleaseCheckerDemo.ViewModels
             {
                 SetupGitHubChecker();
             }
-            else if (repoAuthor != RepoAuthor && repoName != RepoName)
+            else if (repoAuthor != RepoAuthor || repoName != RepoName)
             {
                 _gitHubModel.Checker = null;
                 SetupGitHubChecker();

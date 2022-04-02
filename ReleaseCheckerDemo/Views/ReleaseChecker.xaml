@@ -42,7 +42,7 @@
                     Grid.ColumnSpan="3"
                     Margin="5,0,5,0"
                     VerticalAlignment="Center"
-                    Text="{Binding RepoAuthor}" />
+                    Text="{Binding Path=RepoAuthor, UpdateSourceTrigger=PropertyChanged}" />
                 <Label
                     Grid.Row="1"
                     Grid.Column="0"
@@ -56,7 +56,7 @@
                     Grid.ColumnSpan="3"
                     Margin="5,0,5,0"
                     VerticalAlignment="Center"
-                    Text="{Binding RepoName}" />
+                    Text="{Binding Path=RepoName, UpdateSourceTrigger=PropertyChanged}" />
                 <Label
                     Grid.Row="2"
                     Grid.Column="0"
@@ -69,7 +69,7 @@
                     Grid.Column="1"
                     Margin="5,0,5,0"
                     VerticalAlignment="Center"
-                    IsChecked="{Binding IncludePreRelease}" />
+                    IsChecked="{Binding Path=IncludePreRelease, UpdateSourceTrigger=PropertyChanged}" />
                 <Label
                     Grid.Row="3"
                     Grid.Column="0"
@@ -82,7 +82,8 @@
                     Grid.Column="1"
                     Margin="5,0,5,0"
                     VerticalAlignment="Center"
-                    Text="{Binding Page}" />
+                    PreviewTextInput="NumberValidationTextBox"
+                    Text="{Binding Path=Page, UpdateSourceTrigger=PropertyChanged}" />
                 <Label
                     Grid.Row="3"
                     Grid.Column="2"
@@ -95,7 +96,8 @@
                     Grid.Column="3"
                     Margin="5,0,5,0"
                     VerticalAlignment="Center"
-                    Text="{Binding PageSize}" />
+                    PreviewTextInput="NumberValidationTextBox"
+                    Text="{Binding Path=PageSize, UpdateSourceTrigger=PropertyChanged}" />
                 <Button
                     Grid.Row="0"
                     Grid.Column="4"
@@ -133,11 +135,15 @@
             <Button
                 Width="120"
                 Margin="10"
-                Content="&lt;&lt; Previous Page" />
+                Command="{Binding GetPreviousPage}"
+                Content="&lt;&lt; Previous Page"
+                IsEnabled="{Binding Path=IsPreviousPageButtonEnabled}" />
             <Button
                 Width="120"
                 Margin="10"
-                Content="Next Page &gt;&gt;" />
+                Command="{Binding GetNextPage}"
+                Content="Next Page &gt;&gt;"
+                IsEnabled="{Binding Path=IsNextPageButtonEnabled}" />
         </StackPanel>
     </Grid>
 </UserControl>

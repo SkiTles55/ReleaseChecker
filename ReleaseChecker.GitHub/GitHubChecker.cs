@@ -10,8 +10,6 @@ namespace ReleaseChecker.GitHub
 
         private readonly HttpClient httpClient;
 
-        private bool _hasNextPage = false;
-
         public GitHubChecker(string author, string repository)
         {
             httpClient = new HttpClient();
@@ -19,7 +17,7 @@ namespace ReleaseChecker.GitHub
             _repositoryURL = "https://api.github.com/repos/" + author + "/" + repository + "/releases";
         }
 
-        public bool HasNextPage => _hasNextPage;
+        public bool HasNextPage { get; set; } = false;
 
         public override async Task<List<GitHubRelease>> GetReleasesAsync(int page = 1, int pageSize = 30, bool includePreRelease = false)
         {
@@ -75,8 +73,7 @@ namespace ReleaseChecker.GitHub
         private async Task<GitHubRelease[]?> GetReleasesAsync(bool checkNextPage = false, int page = 1, int pageSize = 30)
         {
             var response = await httpClient.GetAsync(new Uri(_repositoryURL + "?page=" + page + "&per_page=" + pageSize));
-            if (checkNextPage)
-                _hasNextPage = ResponseHasNextPage(response);
+            HasNextPage = checkNextPage && ResponseHasNextPage(response);
             var contentJson = await response.Content.ReadAsStringAsync();
             VerifyGitHubAPIResponse(response.StatusCode, contentJson);
             return JsonSerializer.Deserialize<GitHubRelease[]>(contentJson);
