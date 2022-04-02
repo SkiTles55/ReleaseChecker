@@ -6,6 +6,15 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
+    <Authors>SkiTles55</Authors>
+    <Company>SkiTles55</Company>
+    <Version>1.0.2</Version>
+    <PackageId>ReleaseChecker.Demo</PackageId>
+    <Product>ReleaseChecker.Demo</Product>
+    <Copyright>SkiTles55</Copyright>
+    <PackageProjectUrl>https://github.com/SkiTles55/ReleaseChecker</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SkiTles55/ReleaseChecker</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>

@@ -7,7 +7,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>SkiTles55</Authors>
     <Company>SkiTles55</Company>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageId>ReleaseChecker.GitHub</PackageId>
     <Product>ReleaseChecker.GitHub</Product>
     <Copyright>SkiTles55</Copyright>
@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ReleaseChecker\ReleaseChecker.csproj" Version="1.0.1" />
+    <ProjectReference Include="..\ReleaseChecker\ReleaseChecker.csproj" Version="1.0.2" />
   </ItemGroup>
 
   <ItemGroup>
