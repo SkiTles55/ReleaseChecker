@@ -21,7 +21,7 @@ jobs:
     - name: Build
       run: dotnet build ReleaseChecker.GitHub/ReleaseChecker.GitHub.csproj --no-restore --configuration Release
     - name: Test
-      run: dotnet test ReleaseChecker.GitHub/ReleaseChecker.GitHub.csproj --no-build --configuration Release --verbosity normal
+      run: dotnet test ReleaseChecker.GitHub/ReleaseChecker.GitHub.Tests.csproj --no-build --configuration Release --verbosity normal
     - name: Pack
       run: dotnet pack ReleaseChecker.GitHub/ReleaseChecker.GitHub.csproj --no-build --configuration Release -o __out
     - name: Push

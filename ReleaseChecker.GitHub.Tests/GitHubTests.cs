@@ -1,10 +1,8 @@
 ﻿using NUnit.Framework;
-using ReleaseChecker.GitHub;
 using System;
-using System.IO;
 using System.Linq;
 
-namespace ReleaseCheckerTests
+namespace ReleaseChecker.GitHub.Tests
 {
     internal class ReleaseCheckerTests
     {
