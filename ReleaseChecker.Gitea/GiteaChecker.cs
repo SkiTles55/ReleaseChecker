@@ -14,8 +14,8 @@ namespace ReleaseChecker.Gitea
         {
             if (server.EndsWith("/"))
                 server = server.Remove(server.Length - 1);
-            //if (server.StartsWith("https://") || server.StartsWith("http://"))
-            //    throw new InvalidServerUrlException();
+            if (!(server.StartsWith("https://") || server.StartsWith("http://")))
+                throw new InvalidServerUrlException();
 
             httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add("User-Agent", repository);
@@ -47,7 +47,7 @@ namespace ReleaseChecker.Gitea
             {
                 case HttpStatusCode.Forbidden when content.Contains("API rate limit exceeded"):
                     throw new RateLimitExceededException();
-                case HttpStatusCode.NotFound when content.Contains("Not Found"):
+                case HttpStatusCode.NotFound when content.Contains("Not Found") || content.Contains("GetUserByName"):
                     throw new NotFoundException();
                 default:
                     {
@@ -78,10 +78,10 @@ namespace ReleaseChecker.Gitea
 
         private async Task<GiteaRelease[]?> GetReleasesAsync(bool checkNextPage = false, int page = 1, int pageSize = 30)
         {
-            var response = await httpClient.GetAsync(new Uri(_repositoryURL + "?page=" + page + "&per_page=" + pageSize));
+            var response = await httpClient.GetAsync(new Uri(_repositoryURL + "?page=" + page + "&limit=" + pageSize));
             HasNextPage = checkNextPage && ResponseHasNextPage(response);
             var contentJson = await response.Content.ReadAsStringAsync();
-            //VerifyGiteaAPIResponse(response.StatusCode, contentJson);
+            VerifyGiteaAPIResponse(response.StatusCode, contentJson);
             return JsonSerializer.Deserialize<GiteaRelease[]>(contentJson);
         }
     }

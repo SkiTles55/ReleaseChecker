@@ -1,13 +1,37 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>SkiTles55</Authors>
+    <Company>SkiTles55</Company>
+    <Version>1.0.2</Version>
+    <PackageId>ReleaseChecker.Gitea</PackageId>
+    <Product>ReleaseChecker.Gitea</Product>
+    <Copyright>SkiTles55</Copyright>
+    <PackageProjectUrl>https://github.com/SkiTles55/ReleaseChecker</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/SkiTles55/ReleaseChecker</RepositoryUrl>
+    <Description>A simple library that can be used for basic update checking by requesting a list of releases from Gitea repositories.</Description>
+    <PackageIcon>gitea.png</PackageIcon>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ReleaseChecker\ReleaseChecker.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="gitea.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
