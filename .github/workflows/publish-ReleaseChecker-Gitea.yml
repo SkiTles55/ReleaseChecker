@@ -1,0 +1,28 @@
+name: publish-ReleaseChecker-Gitea
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-publish-ReleaseChecker-GitHub:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+        include-prerelease: False
+    - name: Restore dependencies
+      run: dotnet restore ReleaseChecker.Gitea/ReleaseChecker.Gitea.csproj
+    - name: Build
+      run: dotnet build ReleaseChecker.Gitea/ReleaseChecker.Gitea.csproj --no-restore --configuration Release
+    - name: Test
+      run: dotnet test ReleaseChecker.Gitea/ReleaseChecker.Gitea.Tests.csproj --no-build --configuration Release --verbosity normal
+    - name: Pack
+      run: dotnet pack ReleaseChecker.Gitea/ReleaseChecker.Gitea.csproj --no-build --configuration Release -o __out
+    - name: Push
+      run: dotnet nuget push "./__out/*.nupkg" --source https://api.nuget.org/v3/index.json --no-service-endpoint --no-symbols --api-key ${{secrets.NUGET_API_KEY}}
