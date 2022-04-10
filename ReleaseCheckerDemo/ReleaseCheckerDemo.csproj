@@ -18,6 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ReleaseChecker.Gitea\ReleaseChecker.Gitea.csproj" />
     <ProjectReference Include="..\ReleaseChecker.GitHub\ReleaseChecker.GitHub.csproj" />
   </ItemGroup>
 
