@@ -19,6 +19,13 @@
                     </views:ReleaseChecker.DataContext>
                 </views:ReleaseChecker>
             </TabItem>
+            <TabItem Header="ReleaseChecker.Gitea">
+                <views:ReleaseChecker>
+                    <views:ReleaseChecker.DataContext>
+                        <viewmodels:GiteaViewModel />
+                    </views:ReleaseChecker.DataContext>
+                </views:ReleaseChecker>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

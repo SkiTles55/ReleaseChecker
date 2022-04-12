@@ -13,6 +13,8 @@
         public virtual RelayCommand? GetLatestRelease { get; }
         public virtual RelayCommand? GetNextPage { get; }
         public virtual RelayCommand? GetPreviousPage { get; }
+        public virtual bool IsServerFieldEnabled { get; }
+        public string ServerUrl { get; set; } = string.Empty;
         public string RepoAuthor { get; set; } = string.Empty;
 
         public string RepoName { get; set; } = string.Empty;
