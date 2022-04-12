@@ -25,4 +25,4 @@ jobs:
     - name: Pack
       run: dotnet pack ReleaseChecker.GitHub/ReleaseChecker.GitHub.csproj --no-build --configuration Release -o __out
     - name: Push
-      run: dotnet nuget push "./__out/*.nupkg" --source https://api.nuget.org/v3/index.json --no-service-endpoint --no-symbols --api-key ${{secrets.NUGET_API_KEY}}
+      run: dotnet nuget push "./__out/*.nupkg" --source https://api.nuget.org/v3/index.json --no-service-endpoint --skip-duplicate --no-symbols --api-key ${{secrets.NUGET_API_KEY}}
